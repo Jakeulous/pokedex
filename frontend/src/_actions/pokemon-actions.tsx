@@ -1,7 +1,7 @@
 "use server";
 
 import camelize from "camelize";
-import { index, show } from "../_services/pokemon-service";
+import { index, show, update } from "../_services/pokemon-service";
 
 export async function indexPokemons() {
   try {
@@ -31,6 +31,22 @@ export async function getPokemon(id: number) {
     return [];
   } catch (error) {
     console.error("Failed to fetch pokemon details:", error);
+    return [];
+  }
+}
+
+export async function updatePokemon(id: number, payload: any) {
+  try {
+    const result = await update(id, payload);
+
+    if (result.ok) {
+      const response = await result.json();
+
+      return camelize(response);
+    }
+    return [];
+  } catch (error) {
+    console.error("Failed to update pokemon details:", error);
     return [];
   }
 }

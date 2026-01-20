@@ -1,10 +1,9 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import type { RootState } from "@/store/store";
 import { useDispatch, useSelector } from "react-redux";
+import { EditDialog } from "./EditDialog";
 
 export default function PokemonDetailsPane() {
-  const dispatch = useDispatch();
   const pokemonDetails = useSelector(
     (state: RootState) => state.pokemonState.pokemon
   );
@@ -52,7 +51,7 @@ export default function PokemonDetailsPane() {
                   </Badge>
                 </div>
                 <div className="flex flex-row w-full">
-                  <Button>Edit</Button>
+                  <EditDialog pokemon={pokemonDetails} />
                 </div>
                 <div className="flex flex-col w-full h-full gap-2">
                   {pokemonDetails.abilities?.map((ability) => (
