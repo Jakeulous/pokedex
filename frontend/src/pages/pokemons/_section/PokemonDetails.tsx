@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import type { RootState } from "@/store/store";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { EditDialog } from "./EditDialog";
 
 export default function PokemonDetailsPane() {
@@ -9,7 +9,7 @@ export default function PokemonDetailsPane() {
   );
 
   return (
-    <div className="w-full h-full flex flex-col border-[4px] border-[#303030] rounded-sm font-['Press_Start_2P'] overflow-contain shadow-2xl">
+    <div className="w-full h-full flex flex-col border-[4px] bg-slate-400 border-[#303030] rounded-sm font-['Press_Start_2P'] overflow-contain shadow-2xl">
       {!pokemonDetails && (
         <div className="flex h-full w-full text-white justify-center text-center items-center">
           No Pokemon Selected
