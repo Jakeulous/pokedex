@@ -12,7 +12,7 @@ class PokemonsController < ApplicationController
   def create
     @pokemon = Pokemon.new(pokemon_params)
     if @pokemon.save
-      render json: @pokemon, status: :created
+      render json: @pokemon.format, status: :created
     else
       render json: @pokemon.errors, status: :unprocessable_entity
     end
@@ -20,8 +20,9 @@ class PokemonsController < ApplicationController
 
   def update
     @pokemon = Pokemon.find(params[:id])
+    puts pokemon_params
     if @pokemon.update(pokemon_params)
-      render json: @pokemon
+      render json: @pokemon.format
     else
       render json: @pokemon.errors, status: :unprocessable_entity
     end
