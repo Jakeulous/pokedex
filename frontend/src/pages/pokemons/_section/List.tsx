@@ -1,19 +1,23 @@
-import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { indexPokemons } from "@/actions/pokemon-actions";
 import type { Pokemon } from "@/models/pokemon";
+import { pokemonActions } from "../_redux/pokemon-slice";
+import type { RootState } from "@/store/store";
 
 export default function PokedexList() {
-  const [pokemons, setPokemons] = useState([]);
+  const dispatch = useDispatch();
+  const pokemons = useSelector(
+    (state: RootState) => state.pokemonState.pokemons
+  );
 
-  useEffect(() => {
-    const fetchList = async () => {
-      const data = await indexPokemons();
-      setPokemons(data ?? []);
-    };
-    fetchList();
-  }, []);
+  const handleDataLoad = (data: Pokemon[]) => {
+    dispatch(pokemonActions.loadedPokemon(data));
+  };
+
+  function getPokemonDetails(id: number) {
+    console.log("here id", id);
+  }
 
   return (
     <aside className="w-[380px] flex flex-col border-[4px] border-[#303030] rounded-sm font-['Press_Start_2P']">
@@ -32,6 +36,7 @@ export default function PokedexList() {
                 index % 2 === 0 ? "bg-[#F8F8F8]" : "bg-[#E0E0E0]",
                 "hover:bg-[#FFCB05]/30"
               )}
+              onClick={() => getPokemonDetails(pokemon.id)}
             >
               <span className="text-[10px] text-[#707070] w-12">
                 No&nbsp;{pokemon.id}
