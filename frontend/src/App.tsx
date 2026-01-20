@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { PokedexNavbar } from "./_sections/navbar";
 import AbilitiesHome from "./pages/abilities/abilities";
+import ElementsHome from "./pages/elements/elements";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<PokemonHome />} />
                 <Route path="/abilities" element={<AbilitiesHome />} />
-                <Route path="/elements" element={<AbilitiesHome />} />
+                <Route path="/elements" element={<ElementsHome />} />
               </Routes>
             </div>
           </div>
