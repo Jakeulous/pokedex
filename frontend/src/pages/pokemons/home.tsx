@@ -36,9 +36,13 @@ export default function PokemonHome() {
   }, [dispatch]);
 
   return (
-    <div className="flex w-inherit">
-      <PokedexList />
-      <PokemonDetailsPane />
+    <div className="flex w-full h-full">
+      <div className="w-1/4">
+        <PokedexList />
+      </div>
+      <div className="w-3/4">
+        <PokemonDetailsPane />
+      </div>
     </div>
   );
 }

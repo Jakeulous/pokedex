@@ -9,13 +9,15 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <div className="flex flex-col w-dvw h-dvh bg-slate-400 overflow-contain">
+        <div className="flex flex-col w-dvw h-dvh bg-slate-400 overflow-hidden">
           <PokedexNavbar />
-          <div className="flex w-full justify-center">
-            <Routes>
-              <Route path="/" element={<PokemonHome />} />
-              <Route path="/pokemon/:id" element={<PokemonHome />} />
-            </Routes>
+          <div className="flex flex-row w-full">
+            <div className="flex w-full justify-center mx-38 my-10">
+              <Routes>
+                <Route path="/" element={<PokemonHome />} />
+                <Route path="/pokemon/:id" element={<PokemonHome />} />
+              </Routes>
+            </div>
           </div>
         </div>
       </BrowserRouter>

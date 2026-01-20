@@ -9,8 +9,12 @@ export default function PokemonDetailsPane() {
   );
 
   return (
-    <div className="w-full flex flex-col border-[4px] border-[#303030] rounded-sm font-['Press_Start_2P'] overflow-contain">
-      {!pokemonDetails && <>No Pokemon Selected</>}
+    <div className="w-full h-full flex flex-col border-[4px] border-[#303030] rounded-sm font-['Press_Start_2P'] overflow-contain">
+      {!pokemonDetails && (
+        <div className="flex h-full w-full text-white justify-center text-center items-center">
+          No Pokemon Selected
+        </div>
+      )}
       {pokemonDetails && (
         <div className="grid grid-cols-2">
           <div className="flex flex-row w-full h-80 border-[#303030] border-r-[4px] border-b-[4px] bg-[#D1C1F0]">
