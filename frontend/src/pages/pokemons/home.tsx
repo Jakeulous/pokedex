@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { indexPokemons } from "@/_actions/pokemon-actions";
 import { pokemonActions } from "../../_redux/pokemon-slice";
 import { indexElements } from "@/_actions/elements-actions";
+import { elementActions } from "@/_redux/element-slice";
 
 export default function PokemonHome() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export default function PokemonHome() {
         const elementsData = await indexElements();
         if (elementsData) {
           console.log("here elements", elementsData);
-          // dispatch(pokemonActions.loadedPokemon(elementsData));
+          dispatch(elementActions.loadedElements(elementsData));
         }
       } catch (error) {
         console.error("Failed to fetch pokemons:", error);
