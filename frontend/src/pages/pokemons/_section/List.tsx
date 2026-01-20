@@ -23,7 +23,7 @@ export default function PokedexList() {
   }
 
   return (
-    <aside className="w-[380px] flex flex-col border-[4px] border-[#303030] rounded-sm font-['Press_Start_2P']">
+    <aside className="w-[380px] flex flex-col border-[4px] border-[#303030] rounded-sm font-['Press_Start_2P'] shadow-2xl">
       <div className="bg-[#3D7DCA] p-3 border-b-[4px] border-[#303030] flex justify-between items-center">
         <span className="text-white text-[10px] tracking-tighter">POKEDEX</span>
       </div>
@@ -44,13 +44,15 @@ export default function PokedexList() {
               )}
               onClick={() => getPokemonDetails(pokemon.id)}
             >
-              <span className="text-[10px] text-[#707070] w-12">
-                No&nbsp;{pokemon.id}
-              </span>
+              <div className="flex gap-4">
+                <span className="text-[10px] text-[#707070] w-12">
+                  No&nbsp;{pokemon.id}
+                </span>
 
-              <span className="text-[12px] text-[#303030] uppercase flex-grow tracking-[0.1em]">
-                {pokemon.name}
-              </span>
+                <span className="text-[12px] text-[#303030] uppercase flex-grow tracking-[0.1em]">
+                  {pokemon.name}
+                </span>
+              </div>
             </button>
           ))}
         </div>
