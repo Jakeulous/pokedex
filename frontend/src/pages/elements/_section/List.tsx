@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { cn } from "@/lib/utils";
-import { pokemonActions } from "../../../_redux/pokemon-slice";
 import type { RootState } from "@/store/store";
-import { getPokemon } from "@/_actions/pokemon-actions";
 import type { Element } from "@/models/element";
+import { getElement } from "@/_actions/elements-actions";
+import { elementActions } from "@/_redux/element-slice";
 
 export default function Elementsist() {
   const dispatch = useDispatch();
@@ -14,10 +14,10 @@ export default function Elementsist() {
     (state: RootState) => state.elementState.element
   );
 
-  async function getPokemonDetails(id: number) {
-    const pokemonRes = await getPokemon(id);
-    if (pokemonRes) {
-      dispatch(pokemonActions.setShowPokemon(pokemonRes));
+  async function getElementDetails(id: number) {
+    const elementRes = await getElement(id);
+    if (elementRes) {
+      dispatch(elementActions.setShowElement(elementRes));
     }
   }
 
@@ -41,7 +41,7 @@ export default function Elementsist() {
                 ? "bg-[#FFCB05]/30"
                 : ""
             )}
-            onClick={() => getPokemonDetails(element.id)}
+            onClick={() => getElementDetails(element.id)}
           >
             <div className="flex gap-4">
               <span className="text-[10px] text-[#707070] w-12">

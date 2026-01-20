@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import PokemonDetailsPane from "./_section/PokemonDetails";
+import ElementDetailsPane from "./_section/ElementDetails";
 import { useDispatch } from "react-redux";
 import { indexPokemons } from "@/_actions/pokemon-actions";
 import { pokemonActions } from "../../_redux/pokemon-slice";
@@ -41,7 +41,7 @@ export default function ElementsHome() {
         <Elementsist />
       </div>
       <div className="w-full lg:w-3/4">
-        <PokemonDetailsPane />
+        <ElementDetailsPane />
       </div>
     </div>
   );
