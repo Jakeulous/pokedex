@@ -1,7 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { cn } from "@/lib/utils";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import type { Pokemon } from "@/models/pokemon";
 import { pokemonActions } from "../../../_redux/pokemon-slice";
 import type { RootState } from "@/store/store";
 import { getPokemon } from "@/_actions/pokemon-actions";
