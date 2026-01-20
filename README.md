@@ -1,3 +1,6 @@
+
+[Screencast from 2026-01-21 00-20-52.webm](https://github.com/user-attachments/assets/dfb38491-bb3b-4cfa-bbd9-8840e02d4e92)
+
 # Frontend Assessment
 
 This is a fullstack application featuring a Rails backend API and a React frontend that displays Pokemon data.
