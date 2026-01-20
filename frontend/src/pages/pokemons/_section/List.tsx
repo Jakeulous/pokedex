@@ -11,6 +11,9 @@ export default function PokedexList() {
   const pokemons = useSelector(
     (state: RootState) => state.pokemonState.pokemons
   );
+  const pokemonSelected = useSelector(
+    (state: RootState) => state.pokemonState.pokemon
+  );
 
   async function getPokemonDetails(id: number) {
     const pokemonRes = await getPokemon(id);
@@ -34,7 +37,10 @@ export default function PokedexList() {
               className={cn(
                 "flex items-center px-4 py-4 border-b border-[#D0D0D0] cursor-pointer transition-colors text-left group",
                 index % 2 === 0 ? "bg-[#F8F8F8]" : "bg-[#E0E0E0]",
-                "hover:bg-[#FFCB05]/30"
+                "hover:bg-[#FFCB05]/30",
+                pokemonSelected && pokemonSelected.id == pokemon.id
+                  ? "bg-[#FFCB05]/30"
+                  : ""
               )}
               onClick={() => getPokemonDetails(pokemon.id)}
             >

@@ -1,4 +1,5 @@
 import type { Ability } from "./ability";
+import type { Element } from "./element";
 
 export interface Pokemon {
   id: number;
@@ -8,5 +9,6 @@ export interface Pokemon {
   imageUrl: string;
   createdAt: string;
   updatedAt: string;
+  element?: Element;
   abilities?: Ability[];
 }
