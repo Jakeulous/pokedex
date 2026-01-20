@@ -6,7 +6,7 @@ class AbilitiesController < ApplicationController
 
   def show
     @ability = Ability.find(params[:id])
-    render json: @ability
+    render json: @ability.format
   end
 
   def create
@@ -21,7 +21,7 @@ class AbilitiesController < ApplicationController
   def update
     @ability = Ability.find(params[:id])
     if @ability.update(ability_params)
-      render json: @ability
+      render json: @ability.format
     else
       render json: @ability.errors, status: :unprocessable_entity
     end

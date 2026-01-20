@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { cn } from "@/lib/utils";
-import { pokemonActions } from "../../../_redux/pokemon-slice";
 import type { RootState } from "@/store/store";
-import { getPokemon } from "@/_actions/pokemon-actions";
 import type { Ability } from "@/models/ability";
+import { getAbility } from "@/_actions/abilities-actions";
+import { abilityActions } from "@/_redux/ability-slice";
 
 export default function AbilitiesList() {
   const dispatch = useDispatch();
@@ -14,10 +14,11 @@ export default function AbilitiesList() {
     (state: RootState) => state.abiltiesState.ability
   );
 
-  async function getPokemonDetails(id: number) {
-    const pokemonRes = await getPokemon(id);
-    if (pokemonRes) {
-      dispatch(pokemonActions.setShowPokemon(pokemonRes));
+  async function getAbilityDetails(id: number) {
+    const abilityRes = await getAbility(id);
+    if (abilityRes) {
+      console.log("here abiityRes", abilityRes);
+      dispatch(abilityActions.setShowAbility(abilityRes));
     }
   }
 
@@ -41,7 +42,7 @@ export default function AbilitiesList() {
                 ? "bg-[#FFCB05]/30"
                 : ""
             )}
-            onClick={() => getPokemonDetails(ability.id)}
+            onClick={() => getAbilityDetails(ability.id)}
           >
             <div className="flex gap-4">
               <span className="text-[10px] text-[#707070] w-12">

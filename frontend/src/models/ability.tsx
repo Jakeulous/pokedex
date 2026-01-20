@@ -1,3 +1,4 @@
+import type { Pokemon } from "./pokemon";
 export interface Ability {
   id: number;
   pokemonId: number;
@@ -6,4 +7,5 @@ export interface Ability {
   power: number;
   createdAt: string;
   updatedAt: string;
+  pokemon?: Pokemon;
 }
