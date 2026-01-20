@@ -16,17 +16,15 @@ export default function PokedexList() {
   }, []);
 
   return (
-    <aside className="w-[380px] flex flex-col border-[4px] border-[#303030] rounded-sm font-['Press_Start_2P'] shadow-[8px_8px_0px_rgba(0,0,0,0.2)]">
+    <aside className="w-[380px] flex flex-col border-[4px] border-[#303030] rounded-sm font-['Press_Start_2P']">
       <div className="bg-[#3D7DCA] p-3 border-b-[4px] border-[#303030] flex justify-between items-center">
-        <span className="text-white text-[10px] tracking-tighter">
-          POKEDEX
-        </span>
+        <span className="text-white text-[10px] tracking-tighter">POKEDEX</span>
       </div>
 
       {/* Main List Area using ShadCN ScrollArea */}
       <ScrollArea className="h-full bg-[#F8F8F8]">
         <div className="flex flex-col">
-          {pokemons.map((pokemon:Pokemon, index) => (
+          {pokemons.map((pokemon: Pokemon, index) => (
             <button
               key={pokemon.id}
               className={cn(

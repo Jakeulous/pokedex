@@ -1,15 +1,19 @@
 import "./index.css";
-import PokedexList from "./section/List";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PokemonHome from "./pages/pokemons/home";
 
 function App() {
   return (
-    <div className="flex w-dvw h-dvh bg-slate-400">
-      <div className="flex w-full justify-center bg-slate-200 mx-48">
-        <div className="flex w-full">
-          <PokedexList />
+    <BrowserRouter>
+      <div className="flex w-dvw h-dvh bg-slate-400 overflow-hidden">
+        <div className="flex w-full justify-center mx-38 my-10">
+          <Routes>
+            <Route path="/" element={<PokemonHome />} />
+            <Route path="/pokemon/:id" element={<PokemonHome />} />
+          </Routes>
         </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
