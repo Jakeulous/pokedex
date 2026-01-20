@@ -6,6 +6,8 @@ import { indexPokemons } from "@/_actions/pokemon-actions";
 import { pokemonActions } from "../../_redux/pokemon-slice";
 import { indexElements } from "@/_actions/elements-actions";
 import { elementActions } from "@/_redux/element-slice";
+import { indexAbilities } from "@/_actions/abilities-actions";
+import { abilityActions } from "@/_redux/ability-slice";
 
 export default function PokemonHome() {
   const dispatch = useDispatch();
@@ -19,8 +21,11 @@ export default function PokemonHome() {
         }
         const elementsData = await indexElements();
         if (elementsData) {
-          console.log("here elements", elementsData);
           dispatch(elementActions.loadedElements(elementsData));
+        }
+        const abilitiesData = await indexAbilities();
+        if (abilitiesData) {
+          dispatch(abilityActions.loadedAbilities(abilitiesData));
         }
       } catch (error) {
         console.error("Failed to fetch pokemons:", error);

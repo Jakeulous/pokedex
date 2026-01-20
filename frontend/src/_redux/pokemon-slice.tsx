@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { type Pokemon } from "@/models/pokemon";
 import { type PokemonState } from "./pokemon-state";
+import type { Ability } from "@/models/ability";
 
 const initialState: PokemonState = {
   pokemon: undefined,
@@ -16,6 +17,14 @@ export const pokemonSlice = createSlice({
     },
     setShowPokemon: (state: PokemonState, action: PayloadAction<Pokemon>) => {
       state.pokemon = action.payload;
+    },
+    setShowPokemonAbilities: (
+      state: PokemonState,
+      action: PayloadAction<Ability[]>
+    ) => {
+      if (state.pokemon) {
+        state.pokemon.abilities = action.payload;
+      }
     },
   },
 });
