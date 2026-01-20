@@ -5,6 +5,9 @@
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --pokedex-red: 0 76% 48%; /* #D8291C */
+  --pokedex-screen: 0 0% 97%; /* #F8F8F8 */
+  --pokedex-blue: 213 58% 52%; /* #3D7DCA */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
