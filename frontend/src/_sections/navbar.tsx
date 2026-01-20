@@ -32,9 +32,9 @@ export function PokedexNavbar() {
                   to={item.href}
                   className={cn(
                     "flex h-10 items-center justify-center px-6 py-2 text-[20px] transition-all",
-                    "border-b-4 border-r-4 border-[#303030] active:translate-y-[1px] active:border-b-2 active:border-r-2",
+                    "border-b-4 border-r-4 border-[#303030] active:translate-y-[1px] active:border-b-2 active:border-r-2 hover:text-white",
                     isActive
-                      ? "bg-[#3D7DCA] text-white shadow-[inset_-3px_-3px_0px_white]"
+                      ? "bg-[#3D7DCA] text-white shadow-[inset_-3px_-3px_0px_white] hover:text-black"
                       : "bg-[#D1C1F0] text-[#303030] hover:bg-[#C0B0E0] shadow-[inset_-3px_-3px_0px_rgba(255,255,255,0.4)]"
                   )}
                 >
