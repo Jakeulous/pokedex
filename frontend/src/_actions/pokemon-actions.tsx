@@ -1,8 +1,7 @@
 "use server";
 
 import camelize from "camelize";
-import { index, show } from "../services/pokemon-service";
-import type { Pokemon } from "@/models/pokemon";
+import { index, show } from "../_services/pokemon-service";
 
 export async function indexPokemons() {
   try {
@@ -11,13 +10,7 @@ export async function indexPokemons() {
     if (result.ok) {
       const response = await result.json();
 
-      const data = camelize(response);
-
-      return data.map((pokemon: Pokemon, index: number) => ({
-        ...pokemon,
-        id: (index + 1).toString(),
-        name: pokemon.name.toUpperCase(), // Match the GBA style
-      }));
+      return camelize(response);
     }
     return [];
   } catch (error) {
@@ -33,13 +26,7 @@ export async function getPokemon(id: number) {
     if (result.ok) {
       const response = await result.json();
 
-      const data = camelize(response);
-
-      return data.map((pokemon: Pokemon, index: number) => ({
-        ...pokemon,
-        id: (index + 1).toString(),
-        name: pokemon.name.toUpperCase(), // Match the GBA style
-      }));
+      return camelize(response);
     }
     return [];
   } catch (error) {

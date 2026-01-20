@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import PokedexList from "./_section/List";
 import PokemonDetailsPane from "./_section/PokemonDetails";
 import { useDispatch } from "react-redux";
-import { indexPokemons } from "@/actions/pokemon-actions";
-import { pokemonActions } from "./_redux/pokemon-slice";
+import { indexPokemons } from "@/_actions/pokemon-actions";
+import { pokemonActions } from "../../_redux/pokemon-slice";
+import { indexElements } from "@/_actions/elements-actions";
 
 export default function PokemonHome() {
   const dispatch = useDispatch();
@@ -11,10 +12,14 @@ export default function PokemonHome() {
   useEffect(() => {
     const loadInitialData = async () => {
       try {
-        const data = await indexPokemons();
-        if (data) {
-          // This updates the 'pokemons' array in your Redux state
-          dispatch(pokemonActions.loadedPokemon(data));
+        const pokemonData = await indexPokemons();
+        if (pokemonData) {
+          dispatch(pokemonActions.loadedPokemon(pokemonData));
+        }
+        const elementsData = await indexElements();
+        if (elementsData) {
+          console.log("here elements", elementsData);
+          // dispatch(pokemonActions.loadedPokemon(elementsData));
         }
       } catch (error) {
         console.error("Failed to fetch pokemons:", error);

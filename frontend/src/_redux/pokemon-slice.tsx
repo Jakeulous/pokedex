@@ -11,11 +11,12 @@ export const pokemonSlice = createSlice({
   name: "pokemon",
   initialState,
   reducers: {
-    // Added missing curly braces and fixed function syntax
     loadedPokemon: (state: PokemonState, action: PayloadAction<Pokemon[]>) => {
       state.pokemons = action.payload;
     },
-    // If you had other reducers like setPokemon, add them here
+    setShowPokemon: (state: PokemonState, action: PayloadAction<Pokemon>) => {
+      state.pokemon = action.payload;
+    },
   },
 });
 
