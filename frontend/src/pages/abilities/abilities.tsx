@@ -36,11 +36,11 @@ export default function AbilitiesHome() {
   }, [dispatch]);
 
   return (
-    <div className="flex w-full h-full">
-      <div className="w-1/4">
+    <div className="flex w-full h-full lg:flex-row flex-col-reverse">
+      <div className="w-full lg:w-1/4">
         <AbilitiesList />
       </div>
-      <div className="w-3/4">
+      <div className="w-full lg:w-3/4">
         <PokemonDetailsPane />
       </div>
     </div>
